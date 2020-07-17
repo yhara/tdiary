@@ -3,7 +3,21 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrussh (1.4.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     byebug (11.1.3)
+    capistrano (3.14.1)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (2.0.1)
+      capistrano (~> 3.1)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+    capistrano-rbenv (2.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     capybara (3.32.2)
       addressable
       mini_mime (>= 0.1.3)
@@ -14,6 +28,9 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     coderay (1.1.2)
+    commonmarker (0.21.0)
+      ruby-enum (~> 0.5)
+    concurrent-ruby (1.1.6)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -31,6 +48,9 @@ GEM
       multipart-post (>= 1.2, < 3)
     fastimage (2.1.7)
     hikidoc (0.1.0)
+    i18n (1.8.3)
+      concurrent-ruby (~> 1.0)
+    idn-ruby (0.1.0)
     jasmine (2.99.0)
       jasmine-core (>= 2.99.0, < 3.0.0)
       phantomjs
@@ -49,6 +69,9 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     multipart-post (2.1.1)
+    net-scp (3.0.0)
+      net-ssh (>= 2.6.5, < 7.0.0)
+    net-ssh (6.1.0)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     octokit (4.18.0)
@@ -88,6 +111,8 @@ GEM
     rspec-support (3.9.3)
     ruby-debug-ide (0.7.2)
       rake (>= 0.8.1)
+    ruby-enum (0.8.0)
+      i18n
     rubyzip (2.3.0)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
@@ -102,6 +127,9 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
     sqlite3 (1.4.2)
+    sshkit (1.21.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     sync (0.5.0)
     tdiary (5.1.2)
       bundler (>= 1.3, < 3.0)
@@ -112,6 +140,10 @@ GEM
       rack
       rake
       thor
+    tdiary-style-gfm (1.2.0)
+      commonmarker
+      emot
+      twitter-text (>= 2.0)
     term-ansicolor (1.7.1)
       tins (~> 1.0)
     test-unit (3.3.5)
@@ -119,6 +151,12 @@ GEM
     thor (1.0.1)
     tins (1.25.0)
       sync
+    twitter-text (3.1.0)
+      idn-ruby
+      unf (~> 0.1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -126,6 +164,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
+  capistrano-bundler
+  capistrano-passenger
+  capistrano-rbenv
   capybara
   coveralls (~> 0.8)
   debase
@@ -150,6 +192,7 @@ DEPENDENCIES
   simplecov
   sqlite3
   tdiary
+  tdiary-style-gfm
   test-unit
 
 BUNDLED WITH
